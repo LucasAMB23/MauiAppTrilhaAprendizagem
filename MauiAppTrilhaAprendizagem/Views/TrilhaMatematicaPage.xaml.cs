@@ -6,6 +6,8 @@ namespace MauiAppTrilhaAprendizagem.Views
     {
         int estagioAtual = 1;
         int exercicioAtual = 0;
+        int tentativas = 0;
+        int acertos = 0;
 
         // Estágio 1 (contagem direta)
         (string imagem, int respostaCorreta, string pergunta)[] exerciciosEstagio1 =
@@ -77,6 +79,7 @@ namespace MauiAppTrilhaAprendizagem.Views
         {
             var botao = sender as Button;
             int resposta = int.Parse(botao.Text);
+            tentativas++;
 
             int respostaCorreta = estagioAtual == 1
                 ? exerciciosEstagio1[exercicioAtual].respostaCorreta
@@ -84,10 +87,13 @@ namespace MauiAppTrilhaAprendizagem.Views
 
             if (resposta == respostaCorreta)
             {
+                acertos++;
+
                 FeedbackLabel.Text = "MUITO BEM!";
                 FeedbackLabel.TextColor = Colors.Green;
                 ProximoButton.IsVisible = true;
             }
+
             else
             {
                 FeedbackLabel.Text = "VAMOS TENTAR DE NOVO!";

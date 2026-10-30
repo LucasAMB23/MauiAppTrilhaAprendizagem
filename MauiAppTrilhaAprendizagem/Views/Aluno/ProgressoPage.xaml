@@ -3,37 +3,75 @@
              x:Class="MauiAppTrilhaAprendizagem.Views.Aluno.ProgressoPage"
              Title="Meu Progresso">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+    <!-- Retiramos o ScrollView externo para o CollectionView funcionar perfeitamente -->
+    <VerticalStackLayout Padding="20" Spacing="15" VerticalOptions="FillAndExpand">
 
-            <!-- Nome do aluno -->
-            <Label Text="{Binding Nome}" 
-                   FontSize="24" 
-                   TextColor="DarkBlue" 
-                   HorizontalOptions="Center"/>
+        <!-- Nome do aluno -->
+        <Label Text="{Binding Nome}" 
+               FontSize="24" 
+               TextColor="DarkBlue" 
+               HorizontalOptions="Center"/>
 
-            <!-- Pontuação total -->
-            <Label Text="Pontuação Total:" FontSize="20" />
+        <!-- Bloco de Pontuação Total centralizado -->
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+            <Label Text="Pontuação Total:" FontSize="20" FontAttributes="Bold" />
             <Label Text="{Binding PontuacaoTotal}" 
                    FontSize="20" 
-                   TextColor="Green" />
+                   FontAttributes="Bold"
+                    TextColor="Green" />
+        </HorizontalStackLayout>
 
-            <!-- Lista de exercícios concluídos -->
-            <CollectionView ItemsSource="{Binding Exercicios}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame Padding="10" Margin="5" BackgroundColor="#F0F8FF" CornerRadius="8">
-                            <VerticalStackLayout>
-                                <Label Text="{Binding Nome}" FontSize="18" TextColor="Black"/>
-                                <Label Text="Pontuação: {Binding Pontuacao}" FontSize="16"/>
-                                <Label Text="Tentativas: {Binding Tentativas}" FontSize="16"/>
-                            </VerticalStackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+        <Label Text="Exercícios Concluídos:" FontSize="18" Margin="0,10,0,0" />
 
-        </VerticalStackLayout>
-    </ScrollView>
+        <!-- Lista de exercícios concluídos -->
+        <CollectionView ItemsSource="{Binding Exercicios}" VerticalOptions="FillAndExpand">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="5" BackgroundColor="#F0F8FF" CornerRadius="8">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Nome}" FontSize="18" TextColor="Black" FontAttributes="Bold"/>
+
+                            <!-- 🔧 Corrigido: Uso do StringFormat para juntar texto e Binding -->
+                            <Label Text="{Binding Pontuacao, StringFormat='Pontuação: {0}'}" FontSize="16"/>
+                            <Label Text="{Binding Tentativas, StringFormat='Tentativas: {0}'}" FontSize="16"/>
+
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
 </ContentPage>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

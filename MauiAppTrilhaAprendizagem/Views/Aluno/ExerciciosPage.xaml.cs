@@ -26,6 +26,8 @@ namespace MauiAppTrilhaAprendizagem.Views.Aluno
             aluno.PontuacaoTotal += exercicio.Pontuacao;
 
             await DisplayAlert("Parabéns!", $"Você ganhou {exercicio.Pontuacao} pontos!", "OK");
+            await Navigation.PopAsync();
+        
         }
     }
 }

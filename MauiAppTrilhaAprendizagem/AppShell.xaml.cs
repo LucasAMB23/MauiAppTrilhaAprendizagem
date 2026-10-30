@@ -1,4 +1,5 @@
 ﻿using MauiAppTrilhaAprendizagem.Views;
+using MauiAppTrilhaAprendizagem.Views.Aluno;
 
 namespace MauiAppTrilhaAprendizagem
 {
@@ -14,6 +15,8 @@ namespace MauiAppTrilhaAprendizagem
             Routing.RegisterRoute(nameof(AlunoHomePage), typeof(AlunoHomePage));
             Routing.RegisterRoute(nameof(ProfessorHomePage), typeof(ProfessorHomePage));
             Routing.RegisterRoute(nameof(DesignerHomePage), typeof(DesignerHomePage));
+            Routing.RegisterRoute(nameof(TrilhasPage), typeof(TrilhasPage));
+            Routing.RegisterRoute(nameof(ExerciciosPage), typeof(ExerciciosPage));
         }
     }
 }

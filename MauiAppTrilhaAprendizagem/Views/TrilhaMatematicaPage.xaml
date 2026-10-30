@@ -3,7 +3,9 @@
              x:Class="MauiAppTrilhaAprendizagem.Views.TrilhaMatematicaPage"
              Title="Trilha de Matemática">
 
-    <VerticalStackLayout Padding="20" Spacing="20">
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20" Spacing="20">
 
         <Label x:Name="PerguntaLabel"
                Text="Pergunta aparecerá aqui"
@@ -34,4 +36,5 @@
                 HorizontalOptions="Center" />
 
     </VerticalStackLayout>
+  </ScrollView>
 </ContentPage>
