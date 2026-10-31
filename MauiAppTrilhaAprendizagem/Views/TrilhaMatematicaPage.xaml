@@ -35,6 +35,13 @@
                 Clicked="OnProximoClicked"
                 HorizontalOptions="Center" />
 
-    </VerticalStackLayout>
+               
+            <Button x:Name="OutraTrilhaButton"
+                    Text="📚 Escolher Outra Trilha"
+                    IsVisible="False"
+                    HorizontalOptions="Center"
+                    Clicked="OnOutraTrilhaClicked"/>
+
+        </VerticalStackLayout>
   </ScrollView>
 </ContentPage>

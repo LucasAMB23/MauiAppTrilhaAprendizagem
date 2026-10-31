@@ -19,11 +19,6 @@ namespace MauiAppTrilhaAprendizagem.Views
             await Navigation.PushAsync(new TrilhasPage(aluno));
         }
 
-        private async void OnExerciciosClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ExerciciosPage(aluno));
-        }
-
         private async void OnProgressoClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ProgressoPage(aluno));

@@ -13,10 +13,6 @@
                 HorizontalOptions="Fill"
                 Clicked="OnTrilhasClicked"/>
 
-        <Button Text="📝 Exercícios e Avaliações"
-                HorizontalOptions="Fill"
-                Clicked="OnExerciciosClicked"/>
-
         <Button Text="📊 Meu Progresso"
                 HorizontalOptions="Fill"
                 Clicked="OnProgressoClicked"/>

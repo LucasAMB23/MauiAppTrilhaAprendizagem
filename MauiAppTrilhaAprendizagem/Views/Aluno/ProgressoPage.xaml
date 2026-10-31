@@ -5,6 +5,13 @@
 
     <!-- Retiramos o ScrollView externo para o CollectionView funcionar perfeitamente -->
     <VerticalStackLayout Padding="20" Spacing="15" VerticalOptions="FillAndExpand">
+        
+        <!-- Parte do Progresso do Aluno-->
+        <Label Text="📊 MEU PROGRESSO"
+           FontSize="28"
+           FontAttributes="Bold"
+           HorizontalOptions="Center"
+           TextColor="DarkBlue"/>
 
         <!-- Nome do aluno -->
         <Label Text="{Binding Nome}" 
@@ -12,52 +19,51 @@
                TextColor="DarkBlue" 
                HorizontalOptions="Center"/>
 
-        <!-- Bloco de Pontuação Total centralizado -->
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
-            <Label Text="Pontuação Total:" FontSize="20" FontAttributes="Bold" />
-            <Label Text="{Binding PontuacaoTotal}" 
-                   FontSize="20" 
-                   FontAttributes="Bold"
-                    TextColor="Green" />
-        </HorizontalStackLayout>
+        <Frame BackgroundColor="#F0F8FF"
+           Padding="15"
+           CornerRadius="10">
 
-        <Label Text="Exercícios Concluídos:" FontSize="18" Margin="0,10,0,0" />
+            <VerticalStackLayout Spacing="10"
+                                 HorizontalOptions="Center">
 
-        <!-- Lista de exercícios concluídos -->
-        <CollectionView ItemsSource="{Binding Exercicios}" VerticalOptions="FillAndExpand">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Padding="10" Margin="5" BackgroundColor="#F0F8FF" CornerRadius="8">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Nome}" FontSize="18" TextColor="Black" FontAttributes="Bold"/>
+                <Label Text="{Binding PontuacaoTotal, StringFormat='🏆 Pontuação Total: {0} pontos'}"
+                   FontSize="18"/>
 
-                            <!-- 🔧 Corrigido: Uso do StringFormat para juntar texto e Binding -->
-                            <Label Text="{Binding Pontuacao, StringFormat='Pontuação: {0}'}" FontSize="16"/>
-                            <Label Text="{Binding Tentativas, StringFormat='Tentativas: {0}'}" FontSize="16"/>
+                <Label Text="{Binding TotalAcertos, StringFormat='⭐ Total de Acertos: {0}'}"
+                   FontSize="18"/>
 
-                        </VerticalStackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                <Label Text="{Binding TotalTentativas, StringFormat='🔄 Total de Tentativas: {0}'}"
+                   FontSize="18"/>
+
+            </VerticalStackLayout>
+
+        </Frame>
+
+        <Label Text="✅ Trilhas"
+           FontSize="20"
+           FontAttributes="Bold"/>
+
+        <Frame BackgroundColor="#F8F8F8"
+       Padding="15"
+       CornerRadius="10">
+
+            <VerticalStackLayout Spacing="8">
+
+                <Label Text="✔ Trilha dos Números"
+               FontSize="18"/>
+
+                <Label Text="✔ Trilha das Quantidades"
+               FontSize="18"/>
+
+                <Label Text="🚧 Trilha das Cores e Formas (em andamento)"
+               FontSize="18"/>
+
+            </VerticalStackLayout>
+
+        </Frame>
 
     </VerticalStackLayout>
 </ContentPage>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

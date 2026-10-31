@@ -12,21 +12,21 @@ namespace MauiAppTrilhaAprendizagem.Views.Aluno
             aluno = alunoModel;
         }
 
-        // TRILHA JÁ FUNCIONAL
+        // 🧮 Trilha dos Números
         private async void OnTrilhaNumerosClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MauiAppTrilhaAprendizagem.Views.TrilhaMatematicaPage());
+            await Navigation.PushAsync(
+                new MauiAppTrilhaAprendizagem.Views.TrilhaMatematicaPage(aluno, 1));
         }
 
-        // EM DESENVOLVIMENTO
+        // 🎈 Trilha das Quantidades
         private async void OnTrilhaQuantidadesClicked(object sender, EventArgs e)
         {
-            await DisplayAlert(
-                "Trilha das Quantidades",
-                "Esta trilha está em desenvolvimento.",
-                "OK");
+            await Navigation.PushAsync(
+                new MauiAppTrilhaAprendizagem.Views.TrilhaMatematicaPage(aluno, 2));
         }
 
+        // 🎨 Trilha das Cores e Formas
         private async void OnTrilhaCoresFormasClicked(object sender, EventArgs e)
         {
             await DisplayAlert(
@@ -35,6 +35,7 @@ namespace MauiAppTrilhaAprendizagem.Views.Aluno
                 "OK");
         }
 
+        // 🧠 Trilha dos Desafios
         private async void OnTrilhaDesafiosClicked(object sender, EventArgs e)
         {
             await DisplayAlert(

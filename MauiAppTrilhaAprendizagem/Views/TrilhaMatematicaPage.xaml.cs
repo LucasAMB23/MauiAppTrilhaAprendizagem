@@ -1,7 +1,9 @@
+using MauiAppTrilhaAprendizagem.Models;
 using Microsoft.Maui.Controls;
 
 namespace MauiAppTrilhaAprendizagem.Views
-{
+
+{ 
     public partial class TrilhaMatematicaPage : ContentPage
     {
         int estagioAtual = 1;
@@ -9,36 +11,53 @@ namespace MauiAppTrilhaAprendizagem.Views
         int tentativas = 0;
         int acertos = 0;
 
+        private AlunoModel aluno;
+
         // Estágio 1 (contagem direta)
         (string imagem, int respostaCorreta, string pergunta)[] exerciciosEstagio1 =
         {
             ("bolas.png", 3, "QUANTAS BOLAS TEM NA IMAGEM?"),
             ("carrinhos.png", 8, "QUANTOS CARRINHOS TEM NA IMAGEM?"),
-            ("bonecas.png", 3, "QUANTAS BONECAS TEM NA IMAGEM?")
+            ("bonecas.png", 4, "QUANTAS BONECAS TEM NA IMAGEM?"),
+            ("estrelas.png", 9, "QUANTAS ESTRELAS TEM NA IMAGEM?"),
+            ("ursinhos.png", 5, "QUANTAS URSINHOS TEM NA IMAGEM?"),
         };
 
         // Estágio 2 (completar quantidades)
         (string imagem, int totalDesejado, int quantidadeNaImagem, string pergunta)[] exerciciosEstagio2 =
         {
-            ("ursinhos.jpg", 5, 2, "QUANTOS URSINHOS FALTAM PARA FORMAR O NÚMERO 5?"),
             ("baloes.jpg", 3, 2, "QUANTOS BALÕES FALTAM PARA FORMAR O NÚMERO 3?"),
-            ("flores.jpg", 7, 3, "QUANTAS FLORES FALTAM PARA FORMAR O NÚMERO 7?")
+            ("flores.jpg", 7, 3, "QUANTAS FLORES FALTAM PARA FORMAR O NÚMERO 7?"),
+            ("patinhos.png", 4, 3, "QUANTOS PATINHOS FALTAM PARA FORMAR O NÚMERO 4?"),
+            ("macas.png", 8, 6, "QUANTAS MAÇÃS FALTAM PARA FORMAR O NÚMERO 8?"),
+            ("peixes.png", 10, 4, "QUANTAS PEIXES FALTAM PARA FORMAR O NÚMERO 10?")
         };
 
-        public TrilhaMatematicaPage()
+        public TrilhaMatematicaPage(AlunoModel alunoModel, int trilhaInicial = 1)
         {
             InitializeComponent();
+
+            aluno = alunoModel;
+
+            estagioAtual = trilhaInicial;
+
             CarregarExercicio();
         }
 
-        void CarregarExercicio()
+       void CarregarExercicio()
         {
             ExercicioImage.Source = null;
             PerguntaLabel.Text = "";
-            FeedbackLabel.Text = "";
-            ProximoButton.IsVisible = false;
-            BotoesLayout.Children.Clear();
 
+            FeedbackLabel.Text = "";
+
+            ProximoButton.IsVisible = false;
+            ProximoButton.Text = "Próximo";
+
+            OutraTrilhaButton.IsVisible = false;
+            
+            BotoesLayout.Children.Clear();
+                             
             if (estagioAtual == 1)
             {
                 var exercicio = exerciciosEstagio1[exercicioAtual];
@@ -113,23 +132,74 @@ namespace MauiAppTrilhaAprendizagem.Views
             {
                 estagioAtual = 2;
                 exercicioAtual = 0;
-                PerguntaLabel.Text = "Parabéns! Você concluiu o Estágio 1! Agora vamos para o Estágio 2.";
+
+                PerguntaLabel.Text =
+            $@"🎉 PARABÉNS!
+
+Você concluiu a Trilha dos Números!
+
+⭐ Acertos: {acertos}
+
+🔄 Tentativas: {tentativas}
+
+🏆 Pontuação: {acertos * 10} pontos";
+
                 ExercicioImage.Source = null;
                 FeedbackLabel.Text = "";
-                ProximoButton.IsVisible = true;
+                ProximoButton.IsVisible = false;
+
+                BotoesLayout.Children.Clear();
+
+                OutraTrilhaButton.IsVisible = true;
             }
+
             else if (estagioAtual == 2 && exercicioAtual < exerciciosEstagio2.Length)
             {
                 CarregarExercicio();
             }
             else
             {
-                PerguntaLabel.Text = "Parabéns! Você concluiu todos os estágios!";
+                PerguntaLabel.Text =
+               
+                    $@"🎉 PARABÉNS!
+
+
+                    Você concluiu a Trilha das Quantidades!
+
+
+                    ⭐ Acertos: {acertos}
+
+
+                    🔄 Tentativas: {tentativas}
+
+
+                    🏆 Pontuação: {acertos * 10} pontos";
+              
                 ExercicioImage.Source = null;
                 FeedbackLabel.Text = "";
                 ProximoButton.IsVisible = false;
                 BotoesLayout.Children.Clear();
+                aluno.TotalAcertos += acertos;
+                aluno.TotalTentativas += tentativas;
+                aluno.PontuacaoTotal += acertos * 10;
+                OutraTrilhaButton.IsVisible = true;
             }
+        }
+         async void OnMenuClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopToRootAsync();
+        }
+
+        async void OnProgressoClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert(
+                "Meu Progresso",
+                $"Acertos: {acertos}\nTentativas: {tentativas}\nPontuação: {acertos * 10}",
+                "OK");
+        }
+        async void OnOutraTrilhaClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }
