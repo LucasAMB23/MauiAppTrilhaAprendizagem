@@ -38,28 +38,28 @@
                         Clicked="OnTrilhaQuantidadesClicked" />
             </Frame>
 
-            <!-- Trilha das Cores e Formas -->
+            <!-- Trilha das Cores -->
             <Frame BackgroundColor="#E6E6FA"
                    CornerRadius="20"
                    Padding="15"
                    HasShadow="True">
-                <Button Text="🎨 Trilha das Cores e Formas"
+                <Button Text="🎨 Trilha das Cores"
                         FontSize="22"
                         TextColor="Black"
                         BackgroundColor="Transparent"
-                        Clicked="OnTrilhaCoresFormasClicked" />
+                        Clicked="OnTrilhaCoresClicked" />
             </Frame>
 
-            <!-- Trilha dos Desafios -->
+            <!-- Trilha das Formas -->
             <Frame BackgroundColor="#FFD6E7"
                    CornerRadius="20"
                    Padding="15"
                    HasShadow="True">
-                <Button Text="🧠 Trilha dos Desafios"
+                <Button Text="🧠 Trilha das Formas"
                         FontSize="22"
                         TextColor="Black"
                         BackgroundColor="Transparent"
-                        Clicked="OnTrilhaDesafiosClicked" />
+                        Clicked="OnTrilhaFormasClicked" />
             </Frame>
 
         </VerticalStackLayout>

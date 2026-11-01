@@ -8,5 +8,8 @@
         public int TotalAcertos { get; set; }
         public int TotalTentativas { get; set; }
         public List<ExercicioModel> Exercicios { get; set; } = new List<ExercicioModel>();
+        public bool TrilhaNumerosConcluida { get; set; }
+        public bool TrilhaQuantidadesConcluida { get; set; }
+        public bool TrilhaCoresFormasConcluida { get; set; }
     }
 }

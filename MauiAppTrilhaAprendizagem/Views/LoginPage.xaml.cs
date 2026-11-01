@@ -26,15 +26,20 @@ namespace MauiAppTrilhaAprendizagem.Views
             {
                 await DisplayAlert("Bem-vindo!", $"Olá, {usuario.Nome} ({usuario.Perfil})", "OK");
 
+                // 🌟 NOVA LINHA ADICIONADA: Salva o ID do aluno na memória do celular
+                Preferences.Default.Set("IdUsuarioLogado", usuario.IdUsuario);
+
                 Page destino = usuario.Perfil switch
                 {
-                    "Aluno" => new AlunoHomePage(new AlunoModel
-                    {
-                        Nome = usuario.Nome,
-                        Idade = 0, // valor padrão
-                        PontuacaoTotal = 0,
-                        Exercicios = new List<ExercicioModel>()
-                    }),
+                // Alteramos aqui para puxar os dados reais de pontuação que vêm do banco (usuario.PontuacaoTotal, etc.)
+                "Aluno" => new AlunoHomePage(new AlunoModel
+                {
+                    Nome = usuario.Nome,
+                    Idade = usuario.Idade,
+                    PontuacaoTotal = usuario.PontuacaoTotal, // 🌟 Agora carrega os pontos acumulados!
+                    TotalAcertos = usuario.TotalAcertos,     // 🌟 Carrega os acertos acumulados!
+                    TotalTentativas = usuario.TotalTentativas // 🌟 Carrega as tentativas acumuladas!
+                }),
                     "Professor" => new ProfessorHomePage(),
                     "Designer Pedagógico" => new DesignerHomePage(),
                     _ => new LoginPage()
@@ -47,7 +52,6 @@ namespace MauiAppTrilhaAprendizagem.Views
                 await DisplayAlert("Erro", "Email ou senha incorretos.", "OK");
             }
         }
-
         private async void OnCadastroClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CadastroPage());

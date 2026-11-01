@@ -43,23 +43,31 @@
            FontSize="20"
            FontAttributes="Bold"/>
 
-        <Frame BackgroundColor="#F8F8F8"
-       Padding="15"
-       CornerRadius="10">
 
-            <VerticalStackLayout Spacing="8">
+        <Frame BackgroundColor="#F8F8F8" Padding="15" CornerRadius="10">
+            <VerticalStackLayout Spacing="12">
 
-                <Label Text="✔ Trilha dos Números"
-               FontSize="18"/>
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Label Text="✔" TextColor="Green" FontAttributes="Bold" FontSize="18" IsVisible="{Binding TrilhaNumerosConcluida}"/>
+                    <Label Text="Trilha dos Números" FontSize="18" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
 
-                <Label Text="✔ Trilha das Quantidades"
-               FontSize="18"/>
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Label Text="✔" TextColor="Green" FontAttributes="Bold" FontSize="18" IsVisible="{Binding TrilhaQuantidadesConcluida}"/>
+                    <Label Text="Trilha das Quantidades" FontSize="18" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
 
-                <Label Text="🚧 Trilha das Cores e Formas (em andamento)"
-               FontSize="18"/>
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Label Text="✔" TextColor="Green" FontAttributes="Bold" FontSize="18" IsVisible="{Binding TrilhaCoresFormasConcluida}"/>
+                    <Label Text="Trilha das Cores" FontSize="18" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Label Text="✔" TextColor="Green" FontAttributes="Bold" FontSize="18" IsVisible="{Binding TrilhaCoresFormasConcluida}"/>
+                    <Label Text="Trilha das Formas" FontSize="18" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
 
             </VerticalStackLayout>
-
         </Frame>
 
     </VerticalStackLayout>

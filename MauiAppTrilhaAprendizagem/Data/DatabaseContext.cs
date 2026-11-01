@@ -70,6 +70,35 @@ namespace MauiAppTrilhaAprendizagem.Data
         {
             return _database.DeleteAsync(usuario);
         }
+
+        public async Task<int> AtualizarProgressoAlunoAsync(int idUsuario, int pontosGanhos, int acertosGanhos, int tentativasGanhos, string trilhaNome, bool concluida)
+        {
+            // 1. Busca o usuário atual no banco
+            var usuario = await _database.Table<Usuario>()
+                .Where(u => u.IdUsuario == idUsuario)
+                .FirstOrDefaultAsync();
+
+            if (usuario == null) return 0;
+
+            // 2. Soma as novas pontuações com o que ele já tinha guardado
+            usuario.PontuacaoTotal += pontosGanhos;
+            usuario.TotalAcertos += acertosGanhos;
+            usuario.TotalTentativas += tentativasGanhos;
+
+            if (concluida && !string.IsNullOrEmpty(trilhaNome))
+            {
+                if (string.IsNullOrEmpty(usuario.TrilhasConcluidas))
+                {
+                    usuario.TrilhasConcluidas = trilhaNome;
+                }
+                else if (!usuario.TrilhasConcluidas.Contains(trilhaNome))
+                {
+                    usuario.TrilhasConcluidas += "," + trilhaNome;
+                }
+            }
+            // 3. Salva a atualização permanentemente no SQLite
+            return await _database.UpdateAsync(usuario);
+        }
     }
 }
 

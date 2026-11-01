@@ -1,4 +1,6 @@
 using MauiAppTrilhaAprendizagem.Models;
+using System;
+using Microsoft.Maui.Controls;
 
 namespace MauiAppTrilhaAprendizagem.Views.Aluno
 {
@@ -12,36 +14,32 @@ namespace MauiAppTrilhaAprendizagem.Views.Aluno
             aluno = alunoModel;
         }
 
-        // 🧮 Trilha dos Números
+        // 🧮 Botão 1: Trilha dos Números (Envia o ID 1)
         private async void OnTrilhaNumerosClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(
-                new MauiAppTrilhaAprendizagem.Views.TrilhaMatematicaPage(aluno, 1));
+                new MauiAppTrilhaAprendizagem.Views.TrilhaMatematicaPage(aluno, 1, 1));
         }
 
-        // 🎈 Trilha das Quantidades
+        // 🎈 Botão 2: Trilha das Quantidades (Envia o ID 2)
         private async void OnTrilhaQuantidadesClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(
-                new MauiAppTrilhaAprendizagem.Views.TrilhaMatematicaPage(aluno, 2));
+                new MauiAppTrilhaAprendizagem.Views.TrilhaMatematicaPage(aluno, 2, 2));
         }
 
-        // 🎨 Trilha das Cores e Formas
-        private async void OnTrilhaCoresFormasClicked(object sender, EventArgs e)
+        // 🎨 Botão 3: Trilha das Cores (Envia o ID 3)
+        private async void OnTrilhaCoresClicked(object sender, EventArgs e)
         {
-            await DisplayAlert(
-                "Trilha das Cores e Formas",
-                "Esta trilha está em desenvolvimento.",
-                "OK");
+            await Navigation.PushAsync(
+                new MauiAppTrilhaAprendizagem.Views.TrilhaMatematicaPage(aluno, 1, 3));
         }
 
-        // 🧠 Trilha dos Desafios
-        private async void OnTrilhaDesafiosClicked(object sender, EventArgs e)
+        // 📐 Botão 4: Trilha das Formas (Envia o ID 4)
+        private async void OnTrilhaFormasClicked(object sender, EventArgs e)
         {
-            await DisplayAlert(
-                "Trilha dos Desafios",
-                "Esta trilha está em desenvolvimento.",
-                "OK");
+            await Navigation.PushAsync(
+                new MauiAppTrilhaAprendizagem.Views.TrilhaMatematicaPage(aluno, 1, 4));
         }
     }
 }
