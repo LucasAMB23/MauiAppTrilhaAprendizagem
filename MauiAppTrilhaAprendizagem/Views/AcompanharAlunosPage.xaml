@@ -1,0 +1,53 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppTrilhaAprendizagem.Views.AcompanharAlunosPage"
+             Title="Acompanhar Alunos">
+
+    <VerticalStackLayout Padding="20">
+
+        <Label Text="👩‍🎓 ACOMPANHAR ALUNOS"
+               FontSize="26"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <CollectionView x:Name="AlunosCollection">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Frame Margin="5"
+                           Padding="10"
+                           BackgroundColor="#F0F8FF">
+
+                        <VerticalStackLayout>
+
+                            <Label Text="{Binding Nome}"
+                                   FontAttributes="Bold"
+                                   FontSize="18"/>
+
+                            <Label Text="{Binding PontuacaoTotal,
+                                   StringFormat='🏆 Pontuação: {0}'}"/>
+
+                            <Label Text="{Binding TotalAcertos,
+                                   StringFormat='⭐ Acertos: {0}'}"/>
+
+                            <Label Text="{Binding TotalTentativas,
+                                   StringFormat='🔄 Tentativas: {0}'}"/>
+
+                            <Label Text="{Binding TrilhasConcluidas,
+                                   StringFormat='📚 Trilhas: {0}'}"/>
+
+                        </VerticalStackLayout>
+
+                    </Frame>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>

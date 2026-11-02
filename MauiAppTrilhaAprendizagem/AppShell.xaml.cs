@@ -17,6 +17,7 @@ namespace MauiAppTrilhaAprendizagem
             Routing.RegisterRoute(nameof(DesignerHomePage), typeof(DesignerHomePage));
             Routing.RegisterRoute(nameof(TrilhasPage), typeof(TrilhasPage));
             Routing.RegisterRoute(nameof(ExerciciosPage), typeof(ExerciciosPage));
+            Routing.RegisterRoute(nameof(GerenciarAtividadesPage), typeof(GerenciarAtividadesPage));
         }
     }
 }

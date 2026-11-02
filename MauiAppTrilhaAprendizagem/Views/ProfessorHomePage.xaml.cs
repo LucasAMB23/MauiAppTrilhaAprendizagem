@@ -7,19 +7,21 @@ namespace MauiAppTrilhaAprendizagem.Views
             InitializeComponent();
         }
 
-        private async void OnGerenciarTrilhasClicked(object sender, EventArgs e)
-        {
-            await DisplayAlert("Gerenciar Trilhas", "Aqui o professor poderá criar e gerenciar trilhas de aprendizagem.", "OK");
-        }
-
         private async void OnAcompanharAlunosClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Acompanhar Alunos", "Aqui o professor poderá acompanhar o desempenho dos alunos.", "OK");
+            await Navigation.PushAsync(
+                new AcompanharAlunosPage());
         }
 
         private async void OnRelatoriosClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Relatórios", "Aqui o professor poderá visualizar relatórios de participação e progresso.", "OK");
+            await Navigation.PushAsync(
+                new RelatoriosPage());
+        }
+        private async void OnGerenciarAtividadesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(
+                new GerenciarAtividadesPage());
         }
 
         private async void OnLogoutClicked(object sender, EventArgs e)

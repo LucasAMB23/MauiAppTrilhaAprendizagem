@@ -9,10 +9,6 @@
                HorizontalOptions="Center"
                TextColor="DarkGreen"/>
 
-        <Button Text="📚 Gerenciar Trilhas"
-                HorizontalOptions="Fill"
-                Clicked="OnGerenciarTrilhasClicked"/>
-
         <Button Text="👩‍🎓 Acompanhar Alunos"
                 HorizontalOptions="Fill"
                 Clicked="OnAcompanharAlunosClicked"/>
@@ -20,6 +16,10 @@
         <Button Text="📊 Relatórios"
                 HorizontalOptions="Fill"
                 Clicked="OnRelatoriosClicked"/>
+
+        <Button Text="📚 Gerenciar Atividades"
+                HorizontalOptions="Fill"
+                Clicked="OnGerenciarAtividadesClicked"/>
 
         <Button Text="Sair"
                 BackgroundColor="#0078D7"

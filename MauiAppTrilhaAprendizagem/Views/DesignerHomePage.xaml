@@ -9,17 +9,9 @@
                HorizontalOptions="Center"
                TextColor="Purple"/>
 
-        <Button Text="✏️ Criar Conteúdos"
+        <Button Text="✏️ Criar / Editar Conteúdos"
                 HorizontalOptions="Fill"
                 Clicked="OnCriarConteudosClicked"/>
-
-        <Button Text="🛠️ Editar Trilhas"
-                HorizontalOptions="Fill"
-                Clicked="OnEditarTrilhasClicked"/>
-
-        <Button Text="🤝 Colaborar com Professores"
-                HorizontalOptions="Fill"
-                Clicked="OnColaborarClicked"/>
 
         <Button Text="Sair"
                 BackgroundColor="#0078D7"

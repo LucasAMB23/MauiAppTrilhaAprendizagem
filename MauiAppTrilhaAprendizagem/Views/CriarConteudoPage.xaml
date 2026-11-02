@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppTrilhaAprendizagem.Views.CriarConteudoPage"
+             Title="Criar / Editar Conteúdos">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Novo Desafio para as Trilhas" 
+                   FontSize="20" 
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" 
+                   TextColor="Purple"/>
+
+            <!-- 1. Seleção da Trilha -->
+            <Label Text="1. Selecione a Trilha de Destino:" FontAttributes="Bold"/>
+            <Picker x:Name="pickerTrilha" Title="Selecione uma trilha...">
+                <Picker.Items>
+                    <x:String>Trilha dos Números</x:String>
+                    <x:String>Trilha das Quantidades</x:String>
+                    <x:String>Trilha das Cores</x:String>
+                    <x:String>Trilha das Formas</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!-- 2. Pergunta -->
+            <Label Text="2. Digite a Pergunta Norteadora (Caixa Alta):" FontAttributes="Bold"/>
+            <Entry x:Name="entryPergunta" Placeholder="Ex: QUAL É A COR DO MAR?" TextTransform="Upper"/>
+
+            <!-- 3. Upload de Imagem -->
+            <Label Text="3. Selecione o Estímulo Visual:" FontAttributes="Bold"/>
+            <Button x:Name="btnUpload" 
+                    Text="📁 Selecionar Imagem" 
+                    BackgroundColor="Gray" 
+                    TextColor="White"
+                    Clicked="OnUploadImagemClicked"/>
+            <Label x:Name="lblNomeImagem" Text="Nenhuma imagem selecionada" FontSize="12" TextColor="DimGray"/>
+
+
+            <!-- 4. Alternativas -->
+            <Label Text="4. Cadastre as Alternativas:" FontAttributes="Bold"/>
+
+            <Entry x:Name="entryAltA" Placeholder="Alternativa A"/>
+            <Entry x:Name="entryAltB" Placeholder="Alternativa B"/>
+            <Entry x:Name="entryAltC" Placeholder="Alternativa C"/>
+
+            <!-- 5. Resposta Correta -->
+            <Label Text="5. Qual é a alternativa correta?" FontAttributes="Bold"/>
+            <Picker x:Name="pickerCorreta" Title="Selecione a resposta certa...">
+                <Picker.Items>
+                    <x:String>Alternativa A</x:String>
+                    <x:String>Alternativa B</x:String>
+                    <x:String>Alternativa C</x:String>
+                </Picker.Items>
+            </Picker>
+
+
+            <!-- Botão Salvar -->
+            <Button Text="✔ Salvar e Publicar na Trilha" 
+                    BackgroundColor="#0078D7" 
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Margin="0,20,0,0"
+                    Clicked="OnSalvarConteudoClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

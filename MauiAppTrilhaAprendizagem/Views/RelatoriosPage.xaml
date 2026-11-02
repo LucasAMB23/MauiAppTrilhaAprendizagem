@@ -1,0 +1,64 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppTrilhaAprendizagem.Views.RelatoriosPage"
+             Title="Relatórios">
+
+    <VerticalStackLayout Padding="20">
+
+        <Label Text="📊 RELATÓRIOS"
+               FontSize="28"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <CollectionView x:Name="RelatoriosCollection"
+                        VerticalOptions="FillAndExpand">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Frame Margin="5"
+                           Padding="15"
+                           BackgroundColor="#F8F8F8">
+
+                        <VerticalStackLayout>
+
+                            <Label Text="{Binding Nome}"
+                                   FontSize="20"
+                                   FontAttributes="Bold"/>
+
+                            <Label Text="{Binding PontuacaoTotal,
+                                   StringFormat='🏆 Pontuação Total: {0}'}"/>
+
+                            <Label Text="{Binding TotalAcertos,
+                                   StringFormat='⭐ Acertos: {0}'}"/>
+
+                            <Label Text="{Binding TotalErros,
+                                   StringFormat='❌ Erros: {0}'}"/>
+
+                            <Label Text="{Binding TotalTentativas,
+                                   StringFormat='🔄 Tentativas: {0}'}"/>
+
+                            <Label Text="{Binding TaxaAcerto,
+                                   StringFormat='📈 Taxa de Acerto: {0}%'}"/>
+
+                            <Label Text="{Binding TrilhasConcluidas,
+                                   StringFormat='📚 Trilhas Concluídas: {0}'}"/>
+
+                            <Label Text="{Binding AvaliacaoPedagogica}"
+                                   TextColor="DarkGreen"
+                                   FontAttributes="Bold"/>
+
+                        </VerticalStackLayout>
+
+                    </Frame>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
