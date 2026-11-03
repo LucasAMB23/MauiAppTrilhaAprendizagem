@@ -1,6 +1,6 @@
 namespace MauiAppTrilhaAprendizagem.Views;
 
-{
+
     public partial class CriarConteudoPage : ContentPage
 {
     private string caminhoImagemSelecionada = string.Empty;

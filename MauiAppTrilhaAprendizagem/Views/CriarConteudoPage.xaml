@@ -26,7 +26,7 @@
 
             <!-- 2. Pergunta -->
             <Label Text="2. Digite a Pergunta Norteadora (Caixa Alta):" FontAttributes="Bold"/>
-            <Entry x:Name="entryPergunta" Placeholder="Ex: QUAL É A COR DO MAR?" TextTransform="Upper"/>
+            <Entry x:Name="entryPergunta" Placeholder="Ex: QUAL É A COR DO MAR?" TextTransform="Uppercase"/>
 
             <!-- 3. Upload de Imagem -->
             <Label Text="3. Selecione o Estímulo Visual:" FontAttributes="Bold"/>
